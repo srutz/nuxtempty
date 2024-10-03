@@ -1,9 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
     font-family: Lato, sans-serif;
 }
 
 body {
-    @apply h-dvh w-dvw bg-gray-100 overflow-hidden;
+    @apply h-dvh w-dvw bg-gray-100 overflow-hidden m-0;
 }
 
 body>div {
@@ -109,4 +113,14 @@ a:hover {
     60% {
         transform: translate3d(4px, 0, 0);
     }
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+a:hover {
+    color: inherit;
+    text-decoration: inherit;
 }
