@@ -1,7 +1,7 @@
 <template>
     <div class="grow h-1 flex flex-col items-center overflow-hidden pt-8">
-        <div v-if="fetchStatus === 'loading'">
-            <div>Loading...</div>
+        <div v-if="fetchStatus === 'pending'">
+            <div>Sending data...</div>
         </div>
         <form v-else @submit.prevent="submitForm" class="flex flex-col gap-4 items-start">
             <div class="grid grid-cols-[auto_1fr] gap-4 items-baseline">
@@ -66,13 +66,13 @@ const fetchStatus = ref<AsyncDataRequestStatus>('idle')
 
 const submitForm = async () => {
     try {
-        const { data, status, error, refresh, clear } = await useFetch('/api/saveform', {
+        fetchStatus.value = 'pending'
+        const response = await fetch('/api/saveform', {
             method: 'POST',
-            body: form.value,
+            body: JSON.stringify(form.value),
         })
-        watchEffect(() => {
-            fetchStatus.value = status.value
-        })
+        const data = await response.json()
+        fetchStatus.value = 'success'
         console.log("data", toRaw(unref(data)))
         form.value = {
             firstname: '',
@@ -83,6 +83,7 @@ const submitForm = async () => {
     } catch (e) {
         const error = e as any
         console.error(error.message || 'Failed to submit the form.')
+        fetchStatus.value = 'error'
     }
 }
 
