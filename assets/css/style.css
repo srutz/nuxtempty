@@ -1,0 +1,112 @@
+:root {
+    font-family: Lato, sans-serif;
+}
+
+body {
+    @apply h-dvh w-dvw bg-gray-100 overflow-hidden;
+}
+
+body>div {
+    @apply h-dvh w-dvw flex flex-col overflow-hidden bg-gray-100;
+}
+
+button,
+.button {
+    @apply min-w-32 px-4 py-2 bg-blue-500 text-white text-sm font-semibold rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.redbutton {
+    @apply bg-red-500 hover:bg-red-600;
+}
+
+.button-secondary {
+    @apply bg-white hover:bg-gray-100 text-gray-500;
+}
+
+textarea {
+    @apply font-mono border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm;
+}
+
+input {
+    @apply border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm;
+}
+
+
+a:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+.page-enter-active,
+.page-leave-active {
+    transition: all 0.4s;
+}
+
+.page-enter-from,
+.page-leave-to {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+
+@keyframes moveaway {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-250px) scale(0);
+    }
+}
+
+.bounce-enter-active {
+    animation: bounce-in 0.5s;
+}
+
+.bounce-leave-active {
+    animation: bounce-in 0.5s reverse;
+}
+
+@keyframes bounce-in {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+.shake {
+    animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    transform: translate3d(0, 0, 0);
+}
+
+
+
+@keyframes shake {
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
