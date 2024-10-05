@@ -110,3 +110,10 @@ a:hover {
         transform: translate3d(4px, 0, 0);
     }
 }
+
+.gradient-text {
+    background: -webkit-linear-gradient(315deg, #777777 25%, #647eff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
