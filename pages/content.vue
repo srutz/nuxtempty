@@ -1,6 +1,6 @@
 <template>
     <div class="grow h-1 flex flex-col items-center justify-center overflow-hidden">
-        <Banner>Content page</Banner>
+        <Banner title="Content page"></Banner>
         <div class="h-1 grow flex flex-col gap-4 m-2 ">
             <pre class="overflow-auto text-sm bg-gray-300 p-4 mb-4">{{ contentData }}</pre>
             <pre class="overflow-auto w-full font-sm">{{ content }}</pre>
@@ -45,15 +45,19 @@ if (false) {
 
 // useState and running server code(!) here
 // this will result in a hydration text-content warning
-const { contentData, setContentData } = useContentData()
+const { contentData, setContentData } = useContentData();
+
+//(async () => { setContentData("my content data 123") })();
+
 if (!window) {
     (async () => {
         const f = await fs.readFile("/etc/passwd")
         const s = f.toString()
-        console.log(s)
+        //console.log(s)
         setContentData(s)
     })()
 }
+
 
 
 </script>
