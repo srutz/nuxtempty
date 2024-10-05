@@ -1,4 +1,10 @@
-import { Pool } from 'pg'
+import { Pool } from 'postgrejs'
+
+export type Places = {
+    id: number
+    title: string
+    rating: number
+}
 
 const pool = new Pool({
     user: 'hans',
@@ -8,21 +14,9 @@ const pool = new Pool({
     port: 5432,
 })
 
-export type Places = {
-    id: number
-    title: string
-    rating: number
-}
-
 export async function getPlacesData() {
-    let places: Places[]
-    const client = await pool.connect()
-    try {
-        const result  = await client.query('SELECT id, title, rating FROM places')
-        places = result.rows
-    } finally {
-        client.release()
-    }
+    const result  = await pool.query('SELECT id, title, rating FROM places', { cursor: false })
+    const places: Places[] = result.rows as Places[]
     return places
 }
 

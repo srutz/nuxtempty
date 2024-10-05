@@ -5,11 +5,13 @@
 
 <script setup lang="ts">
 
-const props = defineProps<{
-    data: any[]
-}>()
+import type { Places } from '~/util/Database'   // this is possible 
 
-//for (let i = 0; i < 1000; i++) { console.log("loog 123" + i) }
+const props = defineProps<{
+    data: Places[]
+}>()
+const { data } = props
+
 
 const onclick = () => {
     /* to check if its hydrated */

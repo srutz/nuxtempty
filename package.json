@@ -13,13 +13,11 @@
     "@nuxt/content": "^2.13.2",
     "@nuxt/fonts": "^0.9.2",
     "@nuxt/icon": "^1.5.2",
+    "@nuxt/image": "^1.8.1",
     "@nuxtjs/tailwindcss": "^6.12.1",
     "nuxt": "^3.13.0",
-    "pg": "^8.13.0",
+    "postgrejs": "^2.21.1",
     "vue": "latest",
     "vue-router": "latest"
-  },
-  "devDependencies": {
-    "@types/pg": "^8.11.10"
   }
 }

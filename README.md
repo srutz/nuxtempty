@@ -2,75 +2,27 @@
 
 A nuxt project without anything in it
 
+## This shows data fetching on the serverside done right
 
-## Setup
+nuxt-config needs to have the setting selectiveClient: 'deep' in the componentIslands object
 
-Make sure to install the dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
+```js
+// https://nuxt.com/docs/api/configuration/nuxt-config
+export default defineNuxtConfig({
+    compatibilityDate: '2024-04-03',
+    devtools: { enabled: true },
+    modules: [
+      '@nuxt/icon',
+      '@nuxtjs/tailwindcss',
+      '@nuxt/fonts',
+      '@nuxt/content',
+      '@nuxt/image',
+    ],
+    css: ["~/assets/css/style.css"],
+    experimental: {
+        componentIslands: {
+            selectiveClient: 'deep',
+        },
+    },
+})
 ```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
