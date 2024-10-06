@@ -4,4 +4,16 @@ export default defineNuxtConfig({
     devtools: { enabled: true },
     modules: ['@nuxt/icon', '@nuxtjs/tailwindcss', '@nuxt/fonts'],
     css: ["~/assets/css/style.css"],
+    ssr: true,
+    logLevel: 'info',
+    features: {
+        devLogs: "silent",
+    },
+    routeRules: {
+        "/": {
+            ssr: false
+        }
+    }
+    
+
 })
