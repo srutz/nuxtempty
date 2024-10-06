@@ -7,7 +7,7 @@ body {
 }
 
 body>div {
-    @apply h-dvh w-dvw flex flex-col overflow-hidden bg-gray-100;
+    @apply h-dvh w-dvw flex flex-col overflow-hidden bg-gray-100 relative;
 }
 
 button,
